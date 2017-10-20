@@ -1,11 +1,15 @@
 import React from 'react';
+import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class TestView extends React.Component {
   render() {
     return (
-      <div>
-        <p>TestView!</p>        
-      </div>
+        <MuiThemeProvider>
+          <FlatButton label='TestButton'>
+              OK
+          </FlatButton>
+        </MuiThemeProvider>
     );
   };
 }
