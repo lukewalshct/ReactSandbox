@@ -9,6 +9,39 @@ import {
   } from 'material-ui/Table';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+const tableData = [
+    {
+      name: 'John Smith',
+      description: 'test guy',
+      units: 'mpg',
+      value: 32.4,
+    },
+    {
+      name: 'thing 1',
+      description: 'Hello world!',
+      units: 'mpg',
+      value: 84.3,
+    },
+    {
+      name: 'thing 2',
+      description: "it's bar",
+      units: 'age',
+      value: 13,
+    },
+    {
+      name: 'toyota',
+      description: 'type of car',
+      units: 'mph',
+      value: 65,
+    },        
+    {
+      name: 'Tom Brady',
+      description: 'GOAT',
+      units: 'rings',
+      value: 5,
+    },      
+  ];
+
 class TestView extends React.Component {
   render() {
     return (
@@ -19,34 +52,20 @@ class TestView extends React.Component {
               <TableHeaderColumn>ID</TableHeaderColumn>
               <TableHeaderColumn>Name</TableHeaderColumn>
               <TableHeaderColumn>Description</TableHeaderColumn>
+              <TableHeaderColumn>Units</TableHeaderColumn>
               <TableHeaderColumn>Value</TableHeaderColumn>
             </TableRow>
           </TableHeader>     
             <TableBody>
-            <TableRow>
-              <TableRowColumn>1</TableRowColumn>
-              <TableRowColumn>TestName 1</TableRowColumn>
-              <TableRowColumn>Description 1!</TableRowColumn>
-              <TableRowColumn>23.4</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>2</TableRowColumn>
-              <TableRowColumn>Namers</TableRowColumn>
-              <TableRowColumn>It's a trap!</TableRowColumn>
-              <TableRowColumn>13.4</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>3</TableRowColumn>
-              <TableRowColumn>John</TableRowColumn>
-              <TableRowColumn>blah de blah</TableRowColumn>
-              <TableRowColumn>40</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn>4</TableRowColumn>
-              <TableRowColumn>Name4</TableRowColumn>
-              <TableRowColumn>hello world</TableRowColumn>
-              <TableRowColumn>100</TableRowColumn>
-            </TableRow>                        
+              { tableData.map( (row, index) => (
+                <TableRow key={index}>
+                  <TableRowColumn>{index}</TableRowColumn>  
+                  <TableRowColumn>{row.name}</TableRowColumn>
+                  <TableRowColumn>{row.description}</TableRowColumn>
+                  <TableRowColumn>{row.units}</TableRowColumn>
+                  <TableRowColumn>{row.value}</TableRowColumn>
+                </TableRow>
+              ))}
             </TableBody> 
           </Table>
         </MuiThemeProvider>
